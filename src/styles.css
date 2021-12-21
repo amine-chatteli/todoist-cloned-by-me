@@ -1,0 +1,167 @@
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-family: "Roboto", sans-serif;
+  color: #202020;
+  background-color: #fafafa;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: #db4c3f;
+  height: 44px;
+  top: 0;
+  width: 100%;
+}
+
+nav {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.logo {
+  margin-right: 40%;
+}
+.logo > img {
+  width: 24px;
+}
+.options {
+  width: 8%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  list-style-type: none;
+}
+.options > li > button {
+  color: white;
+  background-color: #db4c3f;
+  border: none;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.options > li > button:hover {
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* content *************************/
+.content {
+  width: 100%;
+  background-color: #fafafa;
+  height: calc(100vh);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* side bar ************************/
+
+.sidebar {
+  padding-top: 40px;
+  width: 30%;
+  height: calc(100vh);
+  background-color: #fafafa;
+}
+
+.sidebar__menu li {
+  height: 35px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+.sidebar__menu li .active,
+.sidebar__menu li:hover {
+  font-weight: bold;
+  background-color: white;
+}
+
+.sidebar__menu li span {
+  margin-left: 10px;
+}
+
+.projects__toggle {
+  margin-left: 40%;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f1f1f1;
+}
+.projects__toggle span {
+  margin-left: 10px;
+}
+
+/* TASKS  **************************/
+
+.tasks {
+  background-color: white;
+  width: 55%;
+  border-right: 1px solid #f1f1f1;
+  border-left: 1px solid #f1f1f1;
+  min-height: calc(100vh);
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 80px;
+  padding-bottom: 84px;
+}
+
+.sidebar__menu {
+  margin-left: 38%;
+  list-style-type: none;
+}
+
+.projects__toggle button{
+  border: none;
+  background-color: transparent;
+}
+
+/* PROJECTS *************************************/
+
+.projects{
+  margin-left: 46%;
+  padding-right: 20px;
+  padding-top: 10px;
+}
+.single__project{
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.single__project:active{
+  font-weight: bold;
+  background-color: white;
+}
+.single__project:hover{
+  font-weight: bold;
+  background-color: white;
+ 
+}
