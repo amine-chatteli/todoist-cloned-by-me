@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useProjects } from "../hooks";
 import { SingleProject } from "./SingleProject";
 
-export const Projects = ({onSetTasksTitle}) => {
-  const { projects, setProjects } = useProjects();
+export const Projects = ({ onSetTasksTitle }) => {
+  const { projects } = useProjects();
   const [activeProject, setActiveProject] = useState();
   const active = projects && projects[0] && projects[0].projectId;
   useEffect(() => {
@@ -11,7 +11,7 @@ export const Projects = ({onSetTasksTitle}) => {
   }, [active]);
 
   return (
-    <ul className="projects">
+    <div className="projects">
       {projects &&
         projects.map((project) => (
           <SingleProject
@@ -22,6 +22,6 @@ export const Projects = ({onSetTasksTitle}) => {
             onSetTasksTitle={onSetTasksTitle}
           />
         ))}
-    </ul>
+    </div>
   );
 };

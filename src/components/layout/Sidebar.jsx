@@ -5,10 +5,11 @@ import {
   FaRegCalendarAlt,
   FaRegCalendar,
 } from "react-icons/fa";
+import { AddProject } from "../AddProject";
 import { Projects } from "../Projects";
 
 export const Sidebar = ({ onSetTasksTitle }) => {
-  const [showProjects, setShowProjects] = useState(false);
+  const [showProjects, setShowProjects] = useState(true);
   const [active, setActive] = useState("inbox");
   return (
     <div className="sidebar">
@@ -51,6 +52,8 @@ export const Sidebar = ({ onSetTasksTitle }) => {
         <span>Projects</span>
       </div>
       {showProjects && <Projects onSetTasksTitle={onSetTasksTitle} />}
+      {showProjects && <AddProject />}
+      
     </div>
   );
 };
