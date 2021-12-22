@@ -97,12 +97,14 @@ nav {
   align-items: center;
   padding-left: 10px;
 }
-.sidebar__menu li .active,
 .sidebar__menu li:hover {
   font-weight: bold;
   background-color: white;
 }
-
+.active {
+  font-weight: bold;
+  background-color: white;
+}
 .sidebar__menu li span {
   margin-left: 10px;
 }
@@ -117,6 +119,78 @@ nav {
 .projects__toggle span {
   margin-left: 10px;
 }
+.sidebar__menu {
+  margin-left: 38%;
+  list-style-type: none;
+}
+
+.projects__toggle button {
+  border: none;
+  background-color: transparent;
+}
+.flip__arrow {
+  transform: rotate(-90deg) scaleX(1);
+}
+
+/* PROJECTS *************************************/
+
+.projects {
+  margin-left: 38%;
+  padding-top: 10px;
+  list-style-type: none;
+}
+.single__project {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.single__project .name {
+  margin-left: 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.single__project:active {
+  font-weight: bold;
+  background-color: white;
+}
+.single__project:hover {
+  font-weight: bold;
+  background-color: white;
+}
+.dot {
+  height: 5px;
+  width: 5px;
+  margin-right: 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+.single__project:nth-child(4n+1) .dot  {
+  background-color: #fad003;
+}
+.single__project:nth-child(4n+2) .dot  {
+  background-color: #6accbc;
+}
+.single__project:nth-child(4n+3) .dot  {
+  background-color: #ff9932;
+}
+.single__project:nth-child(4*(n+1)) .dot  {
+  background-color: #af38eb;
+}
+
+
+.delete__icon {
+  display: none;
+  color: #cacaca;
+  margin-left: 35%;
+}
+
+.single__project:hover .delete__icon {
+  display: block;
+}
 
 /* TASKS  **************************/
 
@@ -126,42 +200,9 @@ nav {
   border-right: 1px solid #f1f1f1;
   border-left: 1px solid #f1f1f1;
   min-height: calc(100vh);
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-top: 80px;
-  padding-bottom: 84px;
 }
-
-.sidebar__menu {
-  margin-left: 38%;
-  list-style-type: none;
-}
-
-.projects__toggle button{
-  border: none;
-  background-color: transparent;
-}
-
-/* PROJECTS *************************************/
-
-.projects{
-  margin-left: 46%;
-  padding-right: 20px;
-  padding-top: 10px;
-}
-.single__project{
-  height: 40px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
-.single__project:active{
-  font-weight: bold;
-  background-color: white;
-}
-.single__project:hover{
-  font-weight: bold;
-  background-color: white;
- 
+p {
+  margin: 40px 0 0 40px;
+  font-size: x-large;
+  color: #202020;
 }
