@@ -1,24 +1,28 @@
 import react, { useState } from "react";
-import {firebase} from "../firebase"
+import { firebase } from "../firebase";
+import { useProjects } from "../hooks";
+import { generatePushId } from "../helpers/index";
 
 export const AddProject = () => {
-  const [showAddProject, SetshowAddProject] = useState(false);
+  const [showAddProject, setShowAddProject] = useState(false);
   const [projectName, setProjectName] = useState("");
+  const { projects, setProjects } = useProjects();
+  const projectId = generatePushId();
   const addProject = () => {
     projectName &&
-    firebase
-      .firestore()
-      .collection('projects')
-      .add({
-        projectId,
-        name: projectName,
-        userId: 'jlIFXIwyAL3tzHMtzRbw',
-      })
-      .then(() => {
-        setProjects([...projects]);
-        setProjectName('');
-        setShow(false);
-      });
+      firebase
+        .firestore()
+        .collection("projects")
+        .add({
+          projectId,
+          name: projectName,
+          userId: "jlIFXIwyAL3tzHMtzRbw",
+        })
+        .then(() => {
+          setProjects([...projects]);
+          setProjectName("");
+          setShowAddProject(false);
+        });
   };
   return (
     <>
@@ -32,7 +36,7 @@ export const AddProject = () => {
           />
           <div className="controls">
             <button onClick={() => addProject()}>Add project</button>
-            <span onClick={() => SetshowAddProject(!showAddProject)}>
+            <span onClick={() => setShowAddProject(!showAddProject)}>
               Cancel
             </span>
           </div>
@@ -43,7 +47,7 @@ export const AddProject = () => {
           <span className="plus">+</span>
           <span
             className="add__text"
-            onClick={() => SetshowAddProject(!showAddProject)}
+            onClick={() => setShowAddProject(!showAddProject)}
           >
             Add Project
           </span>
