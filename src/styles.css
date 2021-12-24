@@ -287,16 +287,29 @@ p {
   margin-left: 7%;
   margin-top: 20px;
 }
+.dropdown__lists {
+  position: relative;
+  background-color: #fad003;
+  margin-right: 65px;
+}
 .drop__down {
-  width: 30%;
-  float: right;
-  margin-right: 64px;
   list-style-type: none;
   border: 1px solid #ddd;
   background-color: white !important;
   border-radius: 3px;
   box-shadow: rgb(0 0 0 / 10%) 0px 0px 0px 1px, rgb(0 0 0 / 10%) 0px 4px 11px;
 }
+.projects__list {
+  width: 60%;
+  float: right;
+}
+.date__list {
+  width: 35%;
+  position: absolute;
+  left: 65%;
+  z-index: 1;
+}
+
 .drop__down li {
   height: 35px;
   padding-left: 10px;
@@ -307,14 +320,43 @@ p {
   justify-content: flex-start;
   border-bottom: 1px solid #ddd;
 }
-.date{
-  position: relative;
-  z-index: 1;
-}
+
 .icons {
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
-.project {
+
+.quick__add__task {
+  background: rgba(102, 102, 102, 0.5);
   position: absolute;
-  right: 15%;
+  margin: auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  -webkit-transition: opacity 0.2s ease-in;
+  transition: opacity 0.2s ease-in;
+  min-height: calc(110%);
+}
+.quick__add__task__popup {
+  background-color: white;
+  position: fixed;
+  height: 180px;
+  width: 420px;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  margin-top: -90px; /* Negative half of height. */
+  margin-left: -210px;
+  overflow: visible;
+  border-radius: 5px;
+}
+.popup__header {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }

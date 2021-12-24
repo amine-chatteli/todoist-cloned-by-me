@@ -1,9 +1,8 @@
-import react from "react";
 import { FaSpaceShuttle, FaSun, FaRegPaperPlane } from "react-icons/fa";
 
 export const TaskDateList = () => {
   return (
-    <ul className="drop__down date">
+    <ul className="drop__down date__list">
       <li>
         <FaSpaceShuttle />
         <span>Today</span>

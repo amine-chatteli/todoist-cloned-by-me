@@ -1,7 +1,7 @@
 import React from "react";
 import { FaPizzaSlice } from "react-icons/fa";
 
-export const Header = () => {
+export const Header = ({ onSetShowQuickAddTask, showQuickAddTask }) => {
   return (
     <div className="header" data-testid="header">
       <nav>
@@ -13,15 +13,13 @@ export const Header = () => {
             <button
               className="options__add"
               type="button"
-              >
+              onClick={() => onSetShowQuickAddTask(!showQuickAddTask)}
+            >
               +
             </button>
           </li>
           <li>
-            <button
-              className="options__dark__mode"
-              type="button"
-            >
+            <button className="options__dark__mode" type="button">
               <FaPizzaSlice />
             </button>
           </li>

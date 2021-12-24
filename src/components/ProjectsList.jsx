@@ -1,10 +1,14 @@
 import React from "react";
-import { useProjects } from "../hooks/index";
 
 export const ProjectsList = () => {
-  const  projects = [{ name: "amine" }] 
+  const projects = [
+    { name: "amine" },
+    { name: "amine" },
+    { name: "amine" },
+    { name: "amine" },
+  ];
   return (
-    <ul className="drop__down project">
+    <ul className="drop__down projects__list">
       {projects.map((project) => (
         <li>{project.name}</li>
       ))}

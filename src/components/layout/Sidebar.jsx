@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   FaChevronDown,
   FaInbox,
@@ -9,8 +9,13 @@ import { AddProject } from "../AddProject";
 import { Projects } from "../Projects";
 
 export const Sidebar = ({ onSetTasksTitle }) => {
-  const [showProjects, setShowProjects] = useState(true);
+  const [showProjects, setShowProjects] = useState(false);
   const [active, setActive] = useState("inbox");
+
+  useEffect(() => {
+
+  });
+  
   return (
     <div className="sidebar">
       <ul className="sidebar__menu">
@@ -53,7 +58,6 @@ export const Sidebar = ({ onSetTasksTitle }) => {
       </div>
       {showProjects && <Projects onSetTasksTitle={onSetTasksTitle} />}
       {showProjects && <AddProject />}
-      
     </div>
   );
 };
