@@ -277,7 +277,7 @@ nav {
   border-left: 1px solid #f1f1f1;
   min-height: calc(100vh);
 }
-p {
+.tasks .tasks__title {
   margin: 8% 0 0 8%;
   font-size: larger;
   color: #202020;
@@ -319,6 +319,7 @@ p {
   align-items: center;
   justify-content: flex-start;
   border-bottom: 1px solid #ddd;
+  cursor: pointer;
 }
 
 .icons {
@@ -359,4 +360,49 @@ p {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+}
+
+.taskname__list {
+  margin: 4% 0 0 8%;
+  list-style-type: none;
+}
+.taskname__list .single__task {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/*  Custom checkbox *******************/
+
+.hideme {
+  display: none;
+}
+
+.woo {
+  cursor: pointer;
+}
+
+.hideme + .woo:before {
+  width: 10px;
+  height: 10px;
+  border: 1px solid gray;
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+  margin-right: 1ex;
+  content: "";
+}
+.hideme:checked + .woo:before {
+  background: grey;
+}
+/* sigle task *********/
+
+.single__task {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 1px solid #ddd;
+  margin-right: 8%;
+  padding: 10px;
 }

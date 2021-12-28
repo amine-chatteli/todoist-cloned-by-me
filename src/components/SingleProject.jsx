@@ -6,22 +6,23 @@ export const SingleProject = ({
   onSetActiveProject,
   projectId,
   activeProject,
-  onSetTasksTitle,
 }) => {
   return (
     <li
       className={
-        activeProject === projectId
+        activeProject.id === projectId
           ? "active single__project"
           : "single__project"
       }
       onClick={() => {
-        onSetActiveProject(projectId);
-        onSetTasksTitle(name);
+        onSetActiveProject({
+          id: projectId,
+          name: name,
+        });
       }}
     >
       <div className="name">
-        <span className="dot"/>
+        <span className="dot" />
         <span>{name}</span>
       </div>
       <FaTrashAlt className="delete__icon" />

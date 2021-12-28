@@ -8,43 +8,44 @@ import {
 import { AddProject } from "../AddProject";
 import { Projects } from "../Projects";
 
-export const Sidebar = ({ onSetTasksTitle }) => {
+export const Sidebar = ({ onSetActiveProject, activeProject }) => {
   const [showProjects, setShowProjects] = useState(false);
-  const [active, setActive] = useState("inbox");
-
-  useEffect(() => {
-
-  });
-  
+  console.log(activeProject);
   return (
     <div className="sidebar">
       <ul className="sidebar__menu">
         <li
           onClick={() => {
-            setActive("inbox");
-            onSetTasksTitle("Inbox");
+            onSetActiveProject({
+              id: "INBOX",
+              name: "Inbox",
+            });
           }}
-          className={active === "inbox" ? "active" : undefined}
+          className={activeProject.id === "INBOX" ? "active" : undefined}
         >
           <FaInbox />
           <span>Inbox</span>
         </li>
         <li
           onClick={() => {
-            setActive("today");
-            onSetTasksTitle("Today");
+            onSetActiveProject({
+              id: "TODAY",
+              name: "Today",
+            });
           }}
-          className={active === "today" ? "active" : undefined}
+          className={activeProject.id === "TODAY" ? "active" : undefined}
         >
           <FaRegCalendar />
           <span>Today</span>
         </li>
         <li
           onClick={() => {
-            setActive("next-week");
-            onSetTasksTitle("Next 7 days");
+            onSetActiveProject({
+              id: "NEXT_7",
+              name: "Next Week",
+            });
           }}
-          className={active === "next-week" ? "active" : undefined}
+          className={activeProject.id === "NEXT_7" ? "active" : undefined}
         >
           <FaRegCalendarAlt />
           <span>Next 7 days</span>
@@ -56,7 +57,12 @@ export const Sidebar = ({ onSetTasksTitle }) => {
         </button>
         <span>Projects</span>
       </div>
-      {showProjects && <Projects onSetTasksTitle={onSetTasksTitle} />}
+      {showProjects && (
+        <Projects
+          onSetActiveProject={onSetActiveProject}
+          activeProject={activeProject}
+        />
+      )}
       {showProjects && <AddProject />}
     </div>
   );

@@ -3,14 +3,20 @@ import { Tasks } from "../Tasks";
 import { Sidebar } from "./Sidebar";
 
 export const Content = ({ showQuickAddTask, onSetShowQuickAddTask }) => {
-  const [tasksTitle, setTasksTitle] = useState("Inbox");
+  const [activeProject, setActiveProject] = useState({
+    id: "INBOX",
+    name: "Inbox",
+  });
   return (
     <div className="content">
-      <Sidebar onSetTasksTitle={(title) => setTasksTitle(title)} />
+      <Sidebar
+        onSetActiveProject={(activeProject) => setActiveProject(activeProject)}
+        activeProject={activeProject}
+      />
       <Tasks
         showQuickAddTask={showQuickAddTask}
         onSetShowQuickAddTask={onSetShowQuickAddTask}
-        tasksTitle={tasksTitle}
+        activeProject={activeProject}
       />
     </div>
   );

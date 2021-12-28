@@ -1,14 +1,8 @@
-import React, { useState, useEffect } from "react";
 import { useProjects } from "../hooks";
 import { SingleProject } from "./SingleProject";
 
-export const Projects = ({ onSetTasksTitle }) => {
+export const Projects = ({ onSetActiveProject, activeProject }) => {
   const { projects } = useProjects();
-  const [activeProject, setActiveProject] = useState();
-  const active = projects && projects[0] && projects[0].projectId;
-  useEffect(() => {
-    setActiveProject(active);
-  }, [active]);
 
   return (
     <div className="projects">
@@ -18,8 +12,7 @@ export const Projects = ({ onSetTasksTitle }) => {
             activeProject={activeProject}
             {...project}
             key={project.projectId}
-            onSetActiveProject={(projectId) => setActiveProject(projectId)}
-            onSetTasksTitle={onSetTasksTitle}
+            onSetActiveProject={onSetActiveProject}
           />
         ))}
     </div>

@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { FaRegListAlt, FaRegCalendarAlt } from "react-icons/fa";
 import { ProjectsList } from "./ProjectsList";
 import { TaskDateList } from "./TaskDateList";
@@ -13,8 +13,8 @@ export const AddTask = ({
   const [taskName, setTaskName] = useState("");
   const [showTaskDate, setShowTaskDate] = useState(false);
   const [showProjectsList, setShowProjectsList] = useState(false);
-
-  const addTask = () => {};
+  const [taskProject, setTaskProject] = useState();
+  const addNewTask = () => {};
   return (
     <div className="add__project__form task">
       {header && (
@@ -33,7 +33,7 @@ export const AddTask = ({
       />
       <div className="controls">
         <div className="add__buttons">
-          <button onClick={() => addTask()}>Add Task</button>
+          <button onClick={() => addNewTask()}>Add Task</button>
           {!header && (
             <span onClick={() => onSetShowAddTask(!showAddTask)}>Cancel</span>
           )}
@@ -46,7 +46,7 @@ export const AddTask = ({
         </div>
       </div>
       <div className="dropdown__lists">
-        {showProjectsList && <ProjectsList />}
+        {showProjectsList && <ProjectsList onSetTaskProject={(project)=>setTaskProject(project)} />}
         {showTaskDate && <TaskDateList />}
       </div>
     </div>

@@ -1,16 +1,12 @@
 import React from "react";
+import { useProjects } from "../hooks";
 
-export const ProjectsList = () => {
-  const projects = [
-    { name: "amine" },
-    { name: "amine" },
-    { name: "amine" },
-    { name: "amine" },
-  ];
+export const ProjectsList = ({ onSetTaskProject }) => {
+  const { projects } = useProjects();
   return (
     <ul className="drop__down projects__list">
       {projects.map((project) => (
-        <li>{project.name}</li>
+        <li onClick={() => onSetTaskProject(project.projectId)}>{project.name}</li>
       ))}
     </ul>
   );
