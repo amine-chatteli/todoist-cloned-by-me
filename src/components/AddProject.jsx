@@ -1,4 +1,4 @@
-import react, { useState } from "react";
+import { useState } from "react";
 import { firebase } from "../firebase";
 import { useProjects } from "../hooks";
 import { generatePushId } from "../helpers/index";
@@ -35,7 +35,7 @@ export const AddProject = () => {
             onChange={({ target: { value } }) => setProjectName(value)}
           />
           <div className="controls">
-            <button onClick={() => addProject()}>Add project</button>
+            <button className="generic__button" onClick={() => addProject()}>Add project</button>
             <span onClick={() => setShowAddProject(!showAddProject)}>
               Cancel
             </span>

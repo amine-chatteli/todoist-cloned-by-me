@@ -142,12 +142,21 @@ nav {
   list-style-type: none;
 }
 .single__project {
+  position: relative;
   height: 40px;
   display: flex;
   flex-direction: row;
   align-items: center;
   cursor: pointer;
 }
+.single__project:hover .delete__icon {
+  display: block;
+}
+.single__project:hover {
+  font-weight: bold;
+  background-color: white;
+}
+
 .single__project .name {
   margin-left: 10%;
   display: flex;
@@ -155,14 +164,11 @@ nav {
   align-items: center;
 }
 
-.single__project:active {
+.active__project {
   font-weight: bold;
   background-color: white;
 }
-.single__project:hover {
-  font-weight: bold;
-  background-color: white;
-}
+
 .dot {
   height: 5px;
   width: 5px;
@@ -190,10 +196,6 @@ nav {
   margin-left: 35%;
 }
 
-.single__project:hover .delete__icon {
-  display: block;
-}
-
 /* ADD PROJECT *************************/
 .add__project__form {
   margin-left: 42%;
@@ -210,7 +212,7 @@ nav {
   padding-right: 10px;
   font-size: 15px;
 }
-.add__project__form button {
+.generic__button {
   background-color: #db4c3f;
   color: #fff !important;
   border: 1px solid transparent;
@@ -319,6 +321,9 @@ nav {
   align-items: center;
   justify-content: flex-start;
   border-bottom: 1px solid #ddd;
+}
+.drop__down li:hover {
+  background-color: #ddd;
   cursor: pointer;
 }
 
@@ -405,4 +410,21 @@ nav {
   border-bottom: 1px solid #ddd;
   margin-right: 8%;
   padding: 10px;
+}
+
+.delete__popup{
+  position: absolute;
+  width: 80%;
+  height: 100px;
+  right: 5%;
+  top: 100%;
+  padding: 10px;
+  font-size: small;
+  z-index: 1;
+  background-color: white !important;
+  border-radius: 3px;
+  box-shadow: rgb(0 0 0 / 10%) 0px 0px 0px 1px, rgb(0 0 0 / 10%) 0px 4px 11px;
+}
+.delete__popup p{
+  margin: 10px 5px 0px;
 }

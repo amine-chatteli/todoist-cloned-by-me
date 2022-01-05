@@ -10,7 +10,6 @@ import { Projects } from "../Projects";
 
 export const Sidebar = ({ onSetActiveProject, activeProject }) => {
   const [showProjects, setShowProjects] = useState(false);
-  console.log(activeProject);
   return (
     <div className="sidebar">
       <ul className="sidebar__menu">

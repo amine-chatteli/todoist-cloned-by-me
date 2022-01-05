@@ -12,7 +12,8 @@ export const Tasks = ({
 }) => {
   const [showAddTask, setShowAddTask] = useState(false);
   const { tasks, archivedTasks } = useTasks(activeProject.id);
-  
+  console.log(tasks);
+
   return (
     <div className="tasks">
       <p className="tasks__title">{activeProject.name}</p>
