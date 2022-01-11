@@ -1,12 +1,12 @@
 import React from "react";
-import { useProjects } from "../hooks";
 
 export const ProjectsList = ({
   onSetTaskProject,
   onSetShowProjectsList,
   showProjectsList,
+  projects
 }) => {
-  const { projects } = useProjects();
+  
   return (
     <ul className="drop__down projects__list">
       {projects.map((project) => (

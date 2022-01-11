@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   FaChevronDown,
   FaInbox,
   FaRegCalendarAlt,
   FaRegCalendar,
 } from "react-icons/fa";
-import { AddProject } from "../AddProject";
+import { useProjects } from "../../hooks";
 import { Projects } from "../Projects";
 
 export const Sidebar = ({ onSetActiveProject, activeProject }) => {
-  const [showProjects, setShowProjects] = useState(false);
+  const [showProjects, setShowProjects] = useState(true);
+  const { projects, setProjects } = useProjects();
   return (
     <div className="sidebar">
       <ul className="sidebar__menu">
@@ -58,11 +59,12 @@ export const Sidebar = ({ onSetActiveProject, activeProject }) => {
       </div>
       {showProjects && (
         <Projects
+          projects={projects}
           onSetActiveProject={onSetActiveProject}
           activeProject={activeProject}
+          onsetProjects={(projects) => setProjects(projects)}
         />
       )}
-      {showProjects && <AddProject />}
     </div>
   );
 };

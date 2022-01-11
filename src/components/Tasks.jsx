@@ -9,11 +9,11 @@ export const Tasks = ({
   activeProject,
   showQuickAddTask,
   onSetShowQuickAddTask,
+  projects,
 }) => {
   const [showAddTask, setShowAddTask] = useState(false);
-  const { tasks, archivedTasks } = useTasks(activeProject.id);
-  console.log(tasks);
-
+  const { tasks } = useTasks(activeProject.id);
+  console.log(activeProject);
   return (
     <div className="tasks">
       <p className="tasks__title">{activeProject.name}</p>
@@ -23,7 +23,12 @@ export const Tasks = ({
         ))}
       </ul>
       {showAddTask && (
-        <AddTask onSetShowAddTask={setShowAddTask} showAddTask={showAddTask} />
+        <AddTask
+          onSetShowAddTask={setShowAddTask}
+          showAddTask={showAddTask}
+          activeProject={activeProject}
+          projects={projects}
+        />
       )}
       {!showAddTask && (
         <AddTaskButton
@@ -35,6 +40,8 @@ export const Tasks = ({
         <QuickAddTask
           onSetShowQuickAddTask={onSetShowQuickAddTask}
           showQuickAddTask={showQuickAddTask}
+          activeProject={activeProject}
+          projects={projects}
         />
       )}
     </div>

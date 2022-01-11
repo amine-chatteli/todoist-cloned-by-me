@@ -3,10 +3,10 @@ import { firebase } from "../firebase";
 import { useProjects } from "../hooks";
 import { generatePushId } from "../helpers/index";
 
-export const AddProject = () => {
+export const AddProject = ({onsetProjects}) => {
   const [showAddProject, setShowAddProject] = useState(false);
   const [projectName, setProjectName] = useState("");
-  const { projects, setProjects } = useProjects();
+  const { projects } = useProjects();
   const projectId = generatePushId();
   const addProject = () => {
     projectName &&
@@ -19,7 +19,7 @@ export const AddProject = () => {
           userId: "jlIFXIwyAL3tzHMtzRbw",
         })
         .then(() => {
-          setProjects([...projects]);
+          onsetProjects([...projects]);
           setProjectName("");
           setShowAddProject(false);
         });

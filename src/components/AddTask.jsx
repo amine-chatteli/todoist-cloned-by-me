@@ -11,12 +11,15 @@ export const AddTask = ({
   header,
   onSetShowQuickAddTask,
   showQuickAddTask,
+  activeProject,
+  projects,
 }) => {
+  console.log(activeProject);
   const [taskName, setTaskName] = useState("");
   const [showTaskDate, setShowTaskDate] = useState(false);
   const [showProjectsList, setShowProjectsList] = useState(false);
-  const [taskProject, setTaskProject] = useState();
-  const [taskDate, setTaskDate] = useState();
+  const [taskProject, setTaskProject] = useState(activeProject.id);
+  const [taskDate, setTaskDate] = useState(moment().format("DD/MM/YYYY"));
 
   const addNewTask = () => {
     const projectId = taskProject;
@@ -83,6 +86,7 @@ export const AddTask = ({
       <div className="dropdown__lists">
         {showProjectsList && (
           <ProjectsList
+            projects={projects}
             showProjectsList={showProjectsList}
             onSetTaskProject={(project) => setTaskProject(project)}
             onSetShowProjectsList={() => setShowProjectsList()}
