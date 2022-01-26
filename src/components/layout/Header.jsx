@@ -1,7 +1,9 @@
 import React from "react";
 import { FaPizzaSlice } from "react-icons/fa";
+import { useQuickAddTaskValue } from "../../context";
 
-export const Header = ({ onSetShowQuickAddTask, showQuickAddTask }) => {
+export const Header = () => {
+  const { showQuickAddTask, setShowQuickAddTask } = useQuickAddTaskValue();
   return (
     <div className="header" data-testid="header">
       <nav>
@@ -13,7 +15,7 @@ export const Header = ({ onSetShowQuickAddTask, showQuickAddTask }) => {
             <button
               className="options__add"
               type="button"
-              onClick={() => onSetShowQuickAddTask(!showQuickAddTask)}
+              onClick={() => setShowQuickAddTask(!showQuickAddTask)}
             >
               +
             </button>

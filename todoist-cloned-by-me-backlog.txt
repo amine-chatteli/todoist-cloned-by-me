@@ -1,0 +1,11 @@
+* refactor using context Api
+* Login logout using firebase
+* tasks according to users
+* add dark mode
+* make it fully resposive
+
+
+DONE: 
+
+* default project for task is currently active project 
+* fix fetch projects to limit GET requests

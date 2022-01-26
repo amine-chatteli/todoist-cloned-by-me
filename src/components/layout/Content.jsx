@@ -3,7 +3,7 @@ import { useProjects } from "../../hooks";
 import { Tasks } from "../Tasks";
 import { Sidebar } from "./Sidebar";
 
-export const Content = ({ showQuickAddTask, onSetShowQuickAddTask }) => {
+export const Content = () => {
   const [activeProject, setActiveProject] = useState({
     id: "INBOX",
     name: "Inbox",
@@ -17,8 +17,6 @@ export const Content = ({ showQuickAddTask, onSetShowQuickAddTask }) => {
       />
       <Tasks
         projects={projects}
-        showQuickAddTask={showQuickAddTask}
-        onSetShowQuickAddTask={onSetShowQuickAddTask}
         activeProject={activeProject}
       />
     </div>

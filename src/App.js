@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Content } from "./components/layout/Content";
 import { Header } from "./components/layout/Header";
+import { QuickAddTaskProvider } from "./context";
+
 import "./styles.css";
 
 function App() {
@@ -8,14 +10,13 @@ function App() {
 
   return (
     <div className="App">
-      <Header
+      <QuickAddTaskProvider
         showQuickAddTask={showQuickAddTask}
-        onSetShowQuickAddTask={setShowQuickAddTask}
-      />
-      <Content
-        showQuickAddTask={showQuickAddTask}
-        onSetShowQuickAddTask={setShowQuickAddTask}
-      />
+        setShowQuickAddTask={setShowQuickAddTask}
+      >
+        <Header />
+        <Content />
+      </QuickAddTaskProvider>
     </div>
   );
 }

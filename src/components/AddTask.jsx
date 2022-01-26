@@ -4,22 +4,21 @@ import { ProjectsList } from "./ProjectsList";
 import { TaskDateList } from "./TaskDateList";
 import firebase from "firebase";
 import moment from "moment";
+import { useQuickAddTaskValue } from "../context";
 
 export const AddTask = ({
   onSetShowAddTask,
   showAddTask,
   header,
-  onSetShowQuickAddTask,
-  showQuickAddTask,
   activeProject,
   projects,
 }) => {
-  console.log(activeProject);
   const [taskName, setTaskName] = useState("");
   const [showTaskDate, setShowTaskDate] = useState(false);
   const [showProjectsList, setShowProjectsList] = useState(false);
   const [taskProject, setTaskProject] = useState(activeProject.id);
   const [taskDate, setTaskDate] = useState(moment().format("DD/MM/YYYY"));
+  const { showQuickAddTask, setShowQuickAddTask } = useQuickAddTaskValue();
 
   const addNewTask = () => {
     const projectId = taskProject;
@@ -56,9 +55,7 @@ export const AddTask = ({
       {header && (
         <div className="popup__header">
           <h5>Quick Add Task</h5>
-          <span onClick={() => onSetShowQuickAddTask(!showQuickAddTask)}>
-            X
-          </span>
+          <span onClick={() => setShowQuickAddTask(!showQuickAddTask)}>X</span>
         </div>
       )}
       <input

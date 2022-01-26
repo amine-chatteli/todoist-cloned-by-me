@@ -1,19 +1,15 @@
 import React, { useState } from "react";
+import { useQuickAddTaskValue } from "../context";
 import { useTasks } from "../hooks/index";
 import { AddTask } from "./AddTask";
 import { AddTaskButton } from "./AddTaskButton";
 import { QuickAddTask } from "./QuickAddTask";
 import { SingleTask } from "./SingleTask";
 
-export const Tasks = ({
-  activeProject,
-  showQuickAddTask,
-  onSetShowQuickAddTask,
-  projects,
-}) => {
+export const Tasks = ({ activeProject, projects }) => {
   const [showAddTask, setShowAddTask] = useState(false);
   const { tasks } = useTasks(activeProject.id);
-  console.log(activeProject);
+  const { showQuickAddTask } = useQuickAddTaskValue();
   return (
     <div className="tasks">
       <p className="tasks__title">{activeProject.name}</p>
@@ -37,12 +33,7 @@ export const Tasks = ({
         />
       )}
       {showQuickAddTask && (
-        <QuickAddTask
-          onSetShowQuickAddTask={onSetShowQuickAddTask}
-          showQuickAddTask={showQuickAddTask}
-          activeProject={activeProject}
-          projects={projects}
-        />
+        <QuickAddTask activeProject={activeProject} projects={projects} />
       )}
     </div>
   );
