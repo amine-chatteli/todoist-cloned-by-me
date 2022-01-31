@@ -1,9 +1,31 @@
-export const SingleTask = ({ taskName,id }) => {
+import { useState } from "react/cjs/react.development";
+import { firebase } from "../firebase";
+
+export const SingleTask = ({ taskName, id }) => {
+  const [deleted, setDeleted] = useState();
+
+  console.log(deleted, id);
+
+  const archiveTask = (docId) => {
+    setTimeout(() => {
+      firebase.firestore().collection("tasks").doc(`${docId}`).update({
+        archived: true,
+      });
+    }, 1000);
+  };
   return (
     <li className="single__task">
-      <input type="checkbox" className="hideme" id={id}/>
+      <input
+        type="checkbox"
+        className="hideme"
+        id={id}
+        onClick={() => {
+          setDeleted(id);
+          archiveTask(id);
+        }}
+      />
       <label className="woo" htmlFor={id}>
-        {taskName}
+        <span className={deleted === id ? "strike" : ""}>{taskName}</span>
       </label>
     </li>
   );

@@ -5,18 +5,18 @@ import {
   FaRegCalendarAlt,
   FaRegCalendar,
 } from "react-icons/fa";
-import { useProjects } from "../../hooks";
+import { UseActiveProjectValue } from "../../context/activeProjectContext";
 import { Projects } from "../Projects";
 
-export const Sidebar = ({ onSetActiveProject, activeProject }) => {
+export const Sidebar = () => {
   const [showProjects, setShowProjects] = useState(true);
-  const { projects, setProjects } = useProjects();
+  const {activeProject,setActiveProject}=UseActiveProjectValue()
   return (
     <div className="sidebar">
       <ul className="sidebar__menu">
         <li
           onClick={() => {
-            onSetActiveProject({
+            setActiveProject({
               id: "INBOX",
               name: "Inbox",
             });
@@ -28,7 +28,7 @@ export const Sidebar = ({ onSetActiveProject, activeProject }) => {
         </li>
         <li
           onClick={() => {
-            onSetActiveProject({
+            setActiveProject({
               id: "TODAY",
               name: "Today",
             });
@@ -40,7 +40,7 @@ export const Sidebar = ({ onSetActiveProject, activeProject }) => {
         </li>
         <li
           onClick={() => {
-            onSetActiveProject({
+            setActiveProject({
               id: "NEXT_7",
               name: "Next Week",
             });
@@ -58,12 +58,7 @@ export const Sidebar = ({ onSetActiveProject, activeProject }) => {
         <span>Projects</span>
       </div>
       {showProjects && (
-        <Projects
-          projects={projects}
-          onSetActiveProject={onSetActiveProject}
-          activeProject={activeProject}
-          onsetProjects={(projects) => setProjects(projects)}
-        />
+        <Projects />
       )}
     </div>
   );

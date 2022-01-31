@@ -11,7 +11,6 @@ export const AddTask = ({
   showAddTask,
   header,
   activeProject,
-  projects,
 }) => {
   const [taskName, setTaskName] = useState("");
   const [showTaskDate, setShowTaskDate] = useState(false);
@@ -83,7 +82,7 @@ export const AddTask = ({
       <div className="dropdown__lists">
         {showProjectsList && (
           <ProjectsList
-            projects={projects}
+
             showProjectsList={showProjectsList}
             onSetTaskProject={(project) => setTaskProject(project)}
             onSetShowProjectsList={() => setShowProjectsList()}

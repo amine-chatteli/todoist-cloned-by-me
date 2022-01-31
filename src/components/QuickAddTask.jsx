@@ -3,7 +3,6 @@ import { AddTask } from "./AddTask";
 
 export const QuickAddTask = ({
   activeProject,
-  projects,
 }) => {
   return (
     <div className="quick__add__task">
@@ -11,7 +10,6 @@ export const QuickAddTask = ({
         <AddTask
           header
           activeProject={activeProject}
-          projects={projects}
         />
       </div>
     </div>

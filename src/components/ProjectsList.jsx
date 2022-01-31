@@ -1,12 +1,12 @@
 import React from "react";
+import { UseProjectsValue } from "../context";
 
 export const ProjectsList = ({
   onSetTaskProject,
   onSetShowProjectsList,
   showProjectsList,
-  projects
 }) => {
-  
+  const { projects } = UseProjectsValue();
   return (
     <ul className="drop__down projects__list">
       {projects.map((project) => (

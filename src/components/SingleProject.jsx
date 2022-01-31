@@ -1,28 +1,41 @@
 import React, { useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
+import { UseActiveProjectValue } from "../context/activeProjectContext";
+import { UseProjectsValue } from "../context/projectsContext";
 import { firebase } from "../firebase";
-import { useProjects } from "../hooks";
 
-export const SingleProject = ({
-  name,
-  onSetActiveProject,
-  projectId,
-  docId,
-  activeProject,
-}) => {
+export const SingleProject = ({ name, projectId, docId }) => {
   const [showDeletePopup, setShowDeletePopup] = useState("");
-  const { projects, setProjects } = useProjects();
+  const { projects, setProjects } = UseProjectsValue();
+  const { activeProject, setActiveProject } = UseActiveProjectValue();
 
-  const deleteProject = (docId) => {
+  const deleteChildTasks = (projectId) => {
+    const db = firebase.firestore();
+    db.collection("tasks")
+      .where("projectId", "==", projectId)
+      .get()
+      .then(function (querySnapshot) {
+        var batch = db.batch();
+        querySnapshot.forEach(function (doc) {
+          // For each doc, add a delete operation to the batch
+          batch.delete(doc.ref);
+        });
+
+        // Commit the batch
+        return batch.commit();
+      });
+  };
+
+  const deleteProject = (docId, projectId) => {
     firebase
       .firestore()
       .collection("projects")
       .doc(docId)
       .delete()
+      .then(() => deleteChildTasks(projectId))
       .then(() => {
-        console.log(projects);
         setProjects([...projects]);
-        onSetActiveProject({
+        setActiveProject({
           id: "INBOX",
           name: "Inbox",
         });
@@ -36,7 +49,7 @@ export const SingleProject = ({
           : "single__project"
       }
       onClick={() => {
-        onSetActiveProject({
+        setActiveProject({
           id: projectId,
           name: name,
         });
@@ -56,7 +69,7 @@ export const SingleProject = ({
           <div className="delete__buttons">
             <button
               className="generic__button"
-              onClick={() => deleteProject(docId)}
+              onClick={() => deleteProject(docId, projectId)}
             >
               Delete
             </button>

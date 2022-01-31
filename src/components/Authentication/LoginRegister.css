@@ -1,0 +1,5 @@
+.register__form__container {
+  --width: 100vw;
+  width: calc((441px / var(--width)) * 100);
+  background-color: chartreuse;
+}

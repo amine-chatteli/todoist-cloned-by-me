@@ -3,4 +3,14 @@ import {
   useQuickAddTaskValue,
 } from "./quickAddTaskContext";
 
-export { QuickAddTaskProvider, useQuickAddTaskValue };
+import {
+   ProjectsProvider,
+    UseProjectsValue,
+ } from "./projectsContext";
+
+export {
+  QuickAddTaskProvider,
+  useQuickAddTaskValue,
+  ProjectsProvider,
+  UseProjectsValue,
+};

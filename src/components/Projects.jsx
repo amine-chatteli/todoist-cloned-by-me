@@ -1,21 +1,21 @@
+import { UseProjectsValue } from "../context";
 import { AddProject } from "./AddProject";
 import { SingleProject } from "./SingleProject";
 
-export const Projects = ({ onSetActiveProject, activeProject, projects,onsetProjects }) => {
+export const Projects = () => {
+  const { projects, setProjects } = UseProjectsValue();
   return (
     <>
       <div className="projects">
         {projects &&
           projects.map((project) => (
             <SingleProject
-              activeProject={activeProject}
               {...project}
               key={project.projectId}
-              onSetActiveProject={onSetActiveProject}
             />
           ))}
       </div>
-      <AddProject onsetProjects={onsetProjects} />
+      <AddProject onsetProjects={setProjects} />
     </>
   );
 };
