@@ -1,4 +1,4 @@
-export const AddTaskButton = ({ onSetShowAddTask,showAddTask }) => {
+export const AddTaskButton = ({ onSetShowAddTask, showAddTask }) => {
   return (
     <div className="add__project__button task">
       <span className="plus">+</span>

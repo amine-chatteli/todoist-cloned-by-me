@@ -10,7 +10,7 @@ import { Projects } from "../Projects";
 
 export const Sidebar = () => {
   const [showProjects, setShowProjects] = useState(true);
-  const {activeProject,setActiveProject}=UseActiveProjectValue()
+  const { activeProject, setActiveProject } = UseActiveProjectValue();
   return (
     <div className="sidebar">
       <ul className="sidebar__menu">
@@ -57,9 +57,7 @@ export const Sidebar = () => {
         </button>
         <span>Projects</span>
       </div>
-      {showProjects && (
-        <Projects />
-      )}
+      {showProjects && <Projects />}
     </div>
   );
 };

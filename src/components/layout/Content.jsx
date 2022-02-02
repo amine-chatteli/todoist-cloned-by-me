@@ -3,10 +3,9 @@ import { Tasks } from "../Tasks";
 import { Sidebar } from "./Sidebar";
 
 export const Content = () => {
- 
   return (
     <div className="content">
-      <Sidebar/>
+      <Sidebar />
       <Tasks />
     </div>
   );

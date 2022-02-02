@@ -3,7 +3,7 @@ import { firebase } from "../firebase";
 import { useProjects } from "../hooks";
 import { generatePushId } from "../helpers/index";
 
-export const AddProject = ({onsetProjects}) => {
+export const AddProject = ({ onsetProjects }) => {
   const [showAddProject, setShowAddProject] = useState(false);
   const [projectName, setProjectName] = useState("");
   const { projects } = useProjects();
@@ -35,7 +35,9 @@ export const AddProject = ({onsetProjects}) => {
             onChange={({ target: { value } }) => setProjectName(value)}
           />
           <div className="controls">
-            <button className="generic__button" onClick={() => addProject()}>Add project</button>
+            <button className="generic__button" onClick={() => addProject()}>
+              Add project
+            </button>
             <span onClick={() => setShowAddProject(!showAddProject)}>
               Cancel
             </span>

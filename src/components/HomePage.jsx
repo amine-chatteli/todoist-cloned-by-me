@@ -1,6 +1,5 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
-import { Register } from "./Authentication/LoginRegisterForm";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
@@ -24,7 +23,7 @@ const HomePage = () => {
               </li>
               <li className="navbar__link">
                 <Link className="navbar__link__router" to="/register">
-                  Register
+                  Sign up
                 </Link>
               </li>
             </ul>
@@ -38,7 +37,9 @@ const HomePage = () => {
           </h1>
         </div>
         <div className="main__section__image">
-          <button className="section__header__button">Register</button>
+          <Link to="/register">
+            <button className="section__header__button">Sign up</button>
+          </Link>
         </div>
       </section>
     </div>

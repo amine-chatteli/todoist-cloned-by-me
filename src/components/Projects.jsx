@@ -9,10 +9,7 @@ export const Projects = () => {
       <div className="projects">
         {projects &&
           projects.map((project) => (
-            <SingleProject
-              {...project}
-              key={project.projectId}
-            />
+            <SingleProject {...project} key={project.projectId} />
           ))}
       </div>
       <AddProject onsetProjects={setProjects} />

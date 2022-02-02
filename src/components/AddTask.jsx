@@ -82,7 +82,6 @@ export const AddTask = ({
       <div className="dropdown__lists">
         {showProjectsList && (
           <ProjectsList
-
             showProjectsList={showProjectsList}
             onSetTaskProject={(project) => setTaskProject(project)}
             onSetShowProjectsList={() => setShowProjectsList()}

@@ -8,6 +8,53 @@ html {
   -webkit-box-sizing: inherit;
   box-sizing: inherit;
 }
+/*******spinner styles********/
+.spinner__page {
+  height: 100vh;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo__and__spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.spinner {
+  margin: 15px;
+  position: relative;
+  background-color: white;
+  border: 2px solid #f1b7b2;
+  border-top: 2px solid #b03d32;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  -webkit-animation: spin 1s linear infinite;
+  -moz-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+}
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
 /*********** HOME PAGE STYLES ********************/
 .homepage__main {
   background-color: white;
@@ -144,6 +191,7 @@ ul {
 }
 
 .header {
+  position: relative;
   background-color: #db4c3f;
   height: 44px;
   top: 0;
@@ -165,12 +213,13 @@ nav {
   width: 24px;
 }
 .options {
-  width: 8%;
+  width: 15%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
   list-style-type: none;
+  overflow: visible;
 }
 .options > li > button {
   color: white;
@@ -186,7 +235,65 @@ nav {
   border-radius: 3px;
   background-color: rgba(255, 255, 255, 0.2);
 }
-
+.username {
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.username__name {
+  height: 38.5px;
+  width: 38.5px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #db4c3f;
+  color: #db4c3f;
+}
+.logout__popup {
+  padding: 10px;
+  position: absolute;
+  width: 17%;
+  height: 100px;
+  left: 69%;
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 8%);
+}
+.logout__popup__header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.full__user {
+  width: 80%;
+  font-size: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 45px;
+}
+.logout__popup__footer {
+  color: grey;
+  cursor: pointer;
+  margin-top: 10px;
+  padding: 5px;
+  border-top: 1px solid #e6e6e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logout__popup__footer:hover{
+  background-color: #ddd;
+}
 /* content *************************/
 .content {
   width: 100%;

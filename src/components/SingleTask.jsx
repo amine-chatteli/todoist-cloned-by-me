@@ -4,8 +4,6 @@ import { firebase } from "../firebase";
 export const SingleTask = ({ taskName, id }) => {
   const [deleted, setDeleted] = useState();
 
-  console.log(deleted, id);
-
   const archiveTask = (docId) => {
     setTimeout(() => {
       firebase.firestore().collection("tasks").doc(`${docId}`).update({

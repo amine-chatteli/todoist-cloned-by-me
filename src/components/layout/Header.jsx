@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaPizzaSlice } from "react-icons/fa";
 import { useQuickAddTaskValue } from "../../context";
-import { QuickAddTask } from "../../context/quickAddTaskContext";
+import { useAuthState } from "react-firebase-hooks/auth";
+import firebase from "firebase";
+import { LogoutPopup } from "../LogoutPopup";
 
 export const Header = () => {
+  const [showLogoutPopup, setShowLogoutPopup] = useState(false);
   const { showQuickAddTask, setShowQuickAddTask } = useQuickAddTaskValue();
+  const [user, loading] = useAuthState(firebase.auth());
+  console.log(user);
+  const initials = user && user.displayName&&user.displayName.match(/\b(\w)/g).join("");
+
   return (
     <>
       <div className="header" data-testid="header">
@@ -27,8 +34,12 @@ export const Header = () => {
                 <FaPizzaSlice />
               </button>
             </li>
+            <li className="username" onClick={()=>setShowLogoutPopup(!showLogoutPopup)}>
+              <div className="username__name">{initials}</div>
+            </li>
           </ul>
         </nav>
+        {showLogoutPopup && <LogoutPopup initials={initials} user={user} />}
       </div>
     </>
   );
