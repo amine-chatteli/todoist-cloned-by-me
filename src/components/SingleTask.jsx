@@ -1,12 +1,12 @@
 import { useState } from "react/cjs/react.development";
-import { firebase } from "../firebase";
+import { firebaseConfig} from "../firebase";
 
 export const SingleTask = ({ taskName, id }) => {
   const [deleted, setDeleted] = useState();
 
   const archiveTask = (docId) => {
     setTimeout(() => {
-      firebase.firestore().collection("tasks").doc(`${docId}`).update({
+      firebaseConfig.firestore().collection("tasks").doc(`${docId}`).update({
         archived: true,
       });
     }, 1000);

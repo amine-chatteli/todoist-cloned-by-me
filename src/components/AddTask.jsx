@@ -5,6 +5,7 @@ import { TaskDateList } from "./TaskDateList";
 import firebase from "firebase";
 import moment from "moment";
 import { useQuickAddTaskValue } from "../context";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 export const AddTask = ({
   onSetShowAddTask,
@@ -18,6 +19,8 @@ export const AddTask = ({
   const [taskProject, setTaskProject] = useState(activeProject.id);
   const [taskDate, setTaskDate] = useState(moment().format("DD/MM/YYYY"));
   const { showQuickAddTask, setShowQuickAddTask } = useQuickAddTaskValue();
+  const [user] = useAuthState(firebase.auth());
+
 
   const addNewTask = () => {
     const projectId = taskProject;
@@ -40,7 +43,7 @@ export const AddTask = ({
           projectId,
           taskName,
           date: collatedDate || taskDate,
-          userId: "jlIFXIwyAL3tzHMtzRbw",
+          userId: user.uid,
         })
         .then(() => {
           setTaskName("");

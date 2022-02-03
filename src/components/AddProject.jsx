@@ -1,22 +1,25 @@
 import { useState } from "react";
-import { firebase } from "../firebase";
+import { firebaseConfig } from "../firebase";
 import { useProjects } from "../hooks";
 import { generatePushId } from "../helpers/index";
+import { useAuthState } from "react-firebase-hooks/auth";
+import firebase from "firebase";
 
 export const AddProject = ({ onsetProjects }) => {
   const [showAddProject, setShowAddProject] = useState(false);
   const [projectName, setProjectName] = useState("");
   const { projects } = useProjects();
   const projectId = generatePushId();
+  const [user] = useAuthState(firebase.auth());
   const addProject = () => {
     projectName &&
-      firebase
+      firebaseConfig
         .firestore()
         .collection("projects")
         .add({
           projectId,
           name: projectName,
-          userId: "jlIFXIwyAL3tzHMtzRbw",
+          userId: user.uid,
         })
         .then(() => {
           onsetProjects([...projects]);

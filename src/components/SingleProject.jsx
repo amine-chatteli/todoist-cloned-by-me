@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { UseActiveProjectValue } from "../context/activeProjectContext";
 import { UseProjectsValue } from "../context/projectsContext";
-import { firebase } from "../firebase";
+import { firebaseConfig } from "../firebase";
 
 export const SingleProject = ({ name, projectId, docId }) => {
   const [showDeletePopup, setShowDeletePopup] = useState("");
@@ -10,7 +10,7 @@ export const SingleProject = ({ name, projectId, docId }) => {
   const { activeProject, setActiveProject } = UseActiveProjectValue();
 
   const deleteChildTasks = (projectId) => {
-    const db = firebase.firestore();
+    const db = firebaseConfig.firestore();
     db.collection("tasks")
       .where("projectId", "==", projectId)
       .get()
@@ -27,7 +27,7 @@ export const SingleProject = ({ name, projectId, docId }) => {
   };
 
   const deleteProject = (docId, projectId) => {
-    firebase
+    firebaseConfig
       .firestore()
       .collection("projects")
       .doc(docId)
@@ -55,7 +55,7 @@ export const SingleProject = ({ name, projectId, docId }) => {
         });
       }}
     >
-      <div className="name">
+      <div className="project__name">
         <span className="dot" />
         <span>{name}</span>
       </div>

@@ -381,7 +381,7 @@ nav {
   background-color: white;
 }
 
-.single__project .name {
+.single__project .project__name {
   margin-left: 10%;
   display: flex;
   flex-direction: row;
